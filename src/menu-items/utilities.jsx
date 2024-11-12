@@ -22,29 +22,22 @@ const icons = {
 
 const utilities = {
   id: 'utilities',
-  title: 'Utilities',
+  title: 'Litigation',
   type: 'group',
   children: [
     {
       id: 'util-typography',
-      title: 'Typography',
+      title: 'All cases',
       type: 'item',
-      url: '/typography',
+      url: '/cases',
       icon: icons.FontSizeOutlined
     },
     {
       id: 'util-color',
-      title: 'Color',
+      title: 'Add new case',
       type: 'item',
-      url: '/color',
+      url: '/add-case',
       icon: icons.BgColorsOutlined
-    },
-    {
-      id: 'util-shadow',
-      title: 'Shadow',
-      type: 'item',
-      url: '/shadow',
-      icon: icons.BarcodeOutlined
     }
   ]
 };

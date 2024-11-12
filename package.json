@@ -27,6 +27,7 @@
     "@fontsource/public-sans": "^5.0.17",
     "@fontsource/roboto": "^5.0.12",
     "@mui/base": "^5.0.0-beta.38",
+    "@mui/icons-material": "^6.1.2",
     "@mui/lab": "^5.0.0-alpha.167",
     "@mui/material": "^5.15.12",
     "@mui/system": "^5.15.12",
@@ -35,6 +36,8 @@
     "apexcharts": "^3.49.0",
     "formik": "^2.4.5",
     "framer-motion": "^11.0.8",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.2",
     "lodash": "^4.17.21",
     "process": "^0.11.10",
     "prop-types": "^15.8.1",
@@ -53,6 +56,7 @@
     "vite": "^5.2.10",
     "vite-jsconfig-paths": "^2.0.1",
     "web-vitals": "^3.5.2",
+    "yarn": "^1.22.22",
     "yup": "^1.4.0"
   },
   "eslintConfig": {

@@ -11,24 +11,22 @@ const icons = {
 
 const support = {
   id: 'support',
-  title: 'Support',
+  title: 'Legislation',
   type: 'group',
   children: [
     {
       id: 'sample-page',
-      title: 'Sample Page',
+      title: 'All Laws',
       type: 'item',
-      url: '/sample-page',
+      url: '/legislations',
       icon: icons.ChromeOutlined
     },
     {
       id: 'documentation',
-      title: 'Documentation',
+      title: 'Add new law',
       type: 'item',
-      url: 'https://codedthemes.gitbook.io/mantis/',
+      url: '/add-legislation',
       icon: icons.QuestionOutlined,
-      external: true,
-      target: true
     }
   ]
 };

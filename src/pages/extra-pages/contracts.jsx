@@ -18,6 +18,8 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 // third-party
 import { NumericFormat } from 'react-number-format';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 // project import
 import Dot from 'components/@extended/Dot';
 
@@ -133,7 +135,6 @@ export default function ContractTable() {
     navigate('/add-contract');
   };
 
-
   // Fetch contract data
   useEffect(() => {
     const fetchContracts = async () => {
@@ -166,6 +167,34 @@ export default function ContractTable() {
     navigate(`/edit-contract/${id}`);
   };
 
+  // PDF Download Function
+  const handleDownloadPDF = async () => {
+    const input = document.getElementById('contract-table'); // Add an id to the table container
+    const canvas = await html2canvas(input);
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF();
+    const imgWidth = 190; // Adjust based on your needs
+    const pageHeight = pdf.internal.pageSize.height;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    let heightLeft = imgHeight;
+
+    let position = 0;
+
+    // Add the image to the PDF
+    pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+    heightLeft -= pageHeight;
+
+    // Add additional pages if necessary
+    while (heightLeft >= 0) {
+      position = heightLeft - imgHeight;
+      pdf.addPage();
+      pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+    }
+
+    pdf.save('contracts.pdf');
+  };
+
   // Sorting helper functions
   const descendingComparator = (a, b, orderBy) => {
     if (b[orderBy] < a[orderBy]) return -1;
@@ -192,6 +221,7 @@ export default function ContractTable() {
   return (
     <Box>
       <TableContainer
+        id="contract-table" // Add ID for PDF generation
         sx={{
           width: '100%',
           overflowX: 'auto',
@@ -241,8 +271,13 @@ export default function ContractTable() {
           </TableBody>
         </Table>
       </TableContainer>
-      <Stack direction="row" justifyContent="flex-start" sx={{ mt: 5 }}>
-        
+      <Stack direction="row" justifyContent="space-between" mt={2}>
+        <Button variant="contained" onClick={handleAddContract}>
+          Add Contract
+        </Button>
+        <Button variant="contained" color="secondary" onClick={handleDownloadPDF}>
+          Download Contracts PDF
+        </Button>
       </Stack>
     </Box>
   );

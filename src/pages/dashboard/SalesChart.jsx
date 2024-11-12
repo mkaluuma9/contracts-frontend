@@ -118,14 +118,14 @@ export default function SalesChart() {
     } else if (income) {
       setSeries([
         {
-          name: 'Income',
+          name: 'Cases',
           data: [180, 90, 135, 114, 120, 145]
         }
       ]);
     } else if (cos) {
       setSeries([
         {
-          name: 'Cost Of Sales',
+          name: 'Contracts',
           data: [120, 45, 78, 150, 168, 99]
         }
       ]);
@@ -169,9 +169,9 @@ export default function SalesChart() {
         <Stack direction="row" alignItems="center" justifyContent="space-between">
           <Stack spacing={1.5}>
             <Typography variant="h6" color="secondary">
-              Net Profit
+              Cases completed
             </Typography>
-            <Typography variant="h4">$1560</Typography>
+            <Typography variant="h4">2</Typography>
           </Stack>
           <FormControl component="fieldset">
             <FormGroup row>
